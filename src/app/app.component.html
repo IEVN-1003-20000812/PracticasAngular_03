@@ -1,28 +1,19 @@
-
-
-<div class="row">
-  <div class="col-6">
-      <div class="mb-3 row">
-          <label for="num1" class="col-sm-2 col-form-label">Numero1</label>
-          <div class="col-sm-10">
-              <input name="num1" [(ngModel)]="num1" type="text" class="form-control">
-          </div>
-      </div>
-      <div class="mb-3 row">
-          <label for="num2" class="col-sm-2 col-form-label">Numero2</label>
-          <div class="col-sm-10">
-              <input name="num2" [(ngModel)]="num2" type="text" class="form-control">
-          </div>
-      </div>
-      <h2>Sumar<input type="radio" id="suma" name="opera" value="suma" [(ngModel)]="select"></h2><br>
-      <h2>Restar<input type="radio" id="resta" name="opera" value="resta" [(ngModel)]="select"></h2><br>
-      <h2>Multiplicacion<input type="radio" id="multi" name="opera" value="multi" [(ngModel)]="select"></h2><br>
-      <h2>Division<input type="radio" id="divi" name="opera" value="divi" [(ngModel)]="select"></h2><br>
-      <div class="mb-3 row">
-          <button (click)="calcular()" class="btn-primary">Calcular Suma</button>
-      </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      
+      <!--<app-producto-list></app-producto-list>-->
+      <!--<app-operas-bas></app-operas-bas>
+      <app-potencia></app-potencia>-->
+      <app-cineplois></app-cineplois>
+    </div>
   </div>
-  <div class="col-6">
-      <h2>Resultado: {{resultado}}</h2>
-  </div>
-</div>
+</body>
+</html>
