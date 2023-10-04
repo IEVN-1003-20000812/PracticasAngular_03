@@ -1,22 +1,55 @@
-<div class="row">
-    <div class="col-6">
-        <div class="mb-3 row">
-            <label for="num1" class="col-sm-2 col-form-label">Numero1</label>
-            <div class="col-sm-10">
-                <input name="num1" type="text" class="form-control">
-            </div>
+<div class="background">
+  <img src="https://static.cinepolis.com/marcas/club-cinepolis-id/Content/images/cinepolis-logo.png" alt="Título" class="title">
+  
+    <div class="container">
+      <div class="left-box">
+          <h2>Entradas</h2>
+
+          <div class="input-group">
+            <label for="nombre">Nombre:</label>
+            <mat-form-field class="input">
+              <input matInput id="nombre" placeholder="Nombre" [(ngModel)]="nombre">
+            </mat-form-field>
+          </div>
+          <div class="input-group">
+            <label for="cantidadCompradores">Cantidad de compradores:</label>
+            <mat-form-field class="input">
+              <input matInput type="number" id="cantidadCompradores" placeholder="Cantidad de compradores" [min]="0" [(ngModel)]="cantidadCompradores" (change)="CantidadBoletos()">
+            </mat-form-field>
+          </div>
+          <div class="input-group">
+            <label>Club Cinepolis:</label>
+            <mat-radio-group [(ngModel)]="club">
+              <mat-radio-button value="true">Si</mat-radio-button>
+              <mat-radio-button value="false">No</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div class="input-group">
+            <label for="cantidadBoletos">Cantidad de boletos:</label>
+            <mat-form-field class="input">
+              <input matInput type="number" id="cantidadBoletos" placeholder="Cantidad de boletos" [min]="0" [(ngModel)]="cantidadBoletos">
+            </mat-form-field>
         </div>
-        <div class="mb-3 row">
-            <label for="num2" class="col-sm-2 col-form-label">Numero2</label>
-            <div class="col-sm-10">
-                <input name="num2" type="text" class="form-control">
-            </div>
+      </div>
+        
+      <div class="right-box">
+        <h2>Salida</h2>
+        <div>
+          <div *ngIf="mostrarCamposEntrada">
+            <p>Nombre: {{ nombre }}</p>
+            <p>Cantidad de compradores: {{ cantidadCompradores }}</p>
+            <p>Cantidad de boletos: {{ cantidadBoletos }}</p>
+          </div>
+          <p>Total a pagar: {{ totalPagar | currency }}</p>
         </div>
-        <div class="mb-3 row">
-            <button class="btn-primary">Calcular Suma</button>
-        </div>
+      </div>
+
     </div>
-    <div class="col-6">
-        <h2>Resultado:</h2>
+  
+    <div  class="center-button">
+      <button mat-raised-button class="mat-button" (click)="F5()">Limpiar</button>
+      <span style="margin-right: 10px;"></span>
+      <button mat-raised-button (click)="calcularTotal()">Procesar</button>
     </div>
-</div>
+    
+  </div>
