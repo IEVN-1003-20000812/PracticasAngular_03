@@ -43,7 +43,7 @@ export class CineploisComponent {
     let total = this.cantidadBoletos * precioPorBoleto;
     total -= total * descuento;
 
-    if (this.club == true) {
+    if (this.club) {
       total -= total * 0.10;
     }
 
