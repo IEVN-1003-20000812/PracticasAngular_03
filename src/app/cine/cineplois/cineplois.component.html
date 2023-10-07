@@ -14,27 +14,32 @@
           <div class="input-group">
             <label for="cantidadCompradores">Cantidad de compradores:</label>
             <mat-form-field class="input">
-              <input matInput type="number" id="cantidadCompradores" placeholder="Cantidad de compradores" [min]="0" [(ngModel)]="cantidadCompradores" (change)="CantidadBoletos()">
+              <input matInput type="number" id="cantidadCompradores" placeholder="Cantidad de compradores" [(ngModel)]="cantidadCompradores" (ngModelChange)="CantidadBoletos()">
             </mat-form-field>
           </div>
           <div class="input-group">
-            <label>Club Cinepolis:</label>
+            <label>Club Cinepolis: <label class="bold">(Obten 10% de descuento adicional)</label></label>
+            <div class="input-group">
             <mat-radio-group [(ngModel)]="club">
-              <mat-radio-button value="true">Si</mat-radio-button>
-              <mat-radio-button value="false">No</mat-radio-button>
+              <span style="margin-right: 5px;"></span>Si<mat-radio-button value = "si"></mat-radio-button>
+              No<mat-radio-button value = "no"></mat-radio-button>
             </mat-radio-group>
           </div>
+          </div>
+          <br>
           <div class="input-group">
             <label for="cantidadBoletos">Cantidad de boletos:</label>
             <mat-form-field class="input">
-              <input matInput type="number" id="cantidadBoletos" placeholder="Cantidad de boletos" [min]="0" [(ngModel)]="cantidadBoletos">
+              <input matInput type="number" id="cantidadBoletos" placeholder="Cantidad de boletos" [min]="1" [(ngModel)]="cantidadBoletos">
             </mat-form-field>
+            <label class="bold">Solo 7 boletos por comprador</label>
         </div>
       </div>
         
       <div class="right-box">
         <h2>Salida</h2>
         <div>
+          <p class="error" *ngIf="error">Error: No se proceso tu compra, se permite solo 7 boletos por comprador</p>
           <div *ngIf="mostrarCamposEntrada">
             <p>Nombre: {{ nombre }}</p>
             <p>Cantidad de compradores: {{ cantidadCompradores }}</p>
@@ -49,7 +54,7 @@
     <div  class="center-button">
       <button mat-raised-button class="mat-button" (click)="F5()">Limpiar</button>
       <span style="margin-right: 10px;"></span>
-      <button mat-raised-button (click)="calcularTotal()">Procesar</button>
+      <button mat-raised-button (click)="calcularTotal()" [disabled]="cantidadBoletos == 0 || cantidadCompradores == 0">Procesar</button>
     </div>
     
   </div>

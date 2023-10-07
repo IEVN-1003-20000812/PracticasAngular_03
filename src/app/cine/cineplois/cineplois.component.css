@@ -8,7 +8,7 @@
 }
 
   .title {
-    width: 200px;
+    width: 300px;
     height: auto;
     margin-bottom: 20px;
   }
@@ -37,7 +37,12 @@
     margin-top: 20px;
   }
 
-  .destacado {
+  .error{
+    color: red;
     font-weight: bold;
-    font-size: 4.2em;
+  }
+
+  .bold{
+    color: black;
+    font-weight: bold;
   }
